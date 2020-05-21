@@ -2,10 +2,14 @@
 Input: an integer
 Returns: an integer
 '''
-def eating_cookies(n):
-    # Your code here
+def eating_cookies(n, current=0):
+    # print(n,current)
+    if current > n:
+        return 0
+    if current == n:
+        return 1
+    return eating_cookies(n, current+1) + eating_cookies(n, current+2) + eating_cookies(n, current+3)
 
-    pass
 
 if __name__ == "__main__":
     # Use the main function here to test out your implementation
