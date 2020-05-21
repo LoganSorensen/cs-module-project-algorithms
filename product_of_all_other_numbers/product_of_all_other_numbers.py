@@ -2,32 +2,49 @@
 Input: a List of integers
 Returns: a List of integers
 '''
-
+import math
 
 def product_of_all_other_numbers(arr):
-    product = 1
-    zeroProduct = 1
-    # calculates the product of every element in the array
-    for i in arr:
-        # if an element is not equal to zero, multiply it
-        if i != 0:
-            product *= i
-            zeroProduct *= i
-        else:
-            product *= i
-            zeroProduct *= 1
+    productArr=[]
+    i = 0
 
-    newArr = []
-    # divides the product by each element in the array to find the product
-    # of every other element
-    for i in arr:
-        if i != 0:
-            newArr.append(product//i)
-        else:
-            newArr.append(zeroProduct)
+    while i < len(arr):
+        # get values before the current index
+        before = arr[:i]
+        # get values after the current index
+        after = arr[i+1:]
+        # concatenate both arrays
+        newArr = before + after
+        # append the product of the new array's values to the productArr
+        productArr.append(math.prod(newArr))
+        i += 1
+    return productArr
 
-    # print(newArr)
-    return newArr
+# # original implementation
+# def product_of_all_other_numbers(arr):
+#     product = 1
+#     zeroProduct = 1
+#     # calculates the product of every element in the array
+#     for i in arr:
+#         # if an element is not equal to zero, multiply it
+#         if i != 0:
+#             product *= i
+#             zeroProduct *= i
+#         else:
+#             product *= i
+#             zeroProduct *= 1
+
+#     newArr = []
+#     # divides the product by each element in the array to find the product
+#     # of every other element
+#     for i in arr:
+#         if i != 0:
+#             newArr.append(product//i)
+#         else:
+#             newArr.append(zeroProduct)
+
+#     # print(newArr)
+#     return newArr
 
 
 if __name__ == '__main__':

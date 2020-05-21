@@ -14,7 +14,8 @@ def eating_cookies(n, cache=0):
             cache = [0 for _ in range(n+1)]
         cache[n] = eating_cookies(n-1, cache) + eating_cookies(n-2, cache) + eating_cookies(n-3, cache)
     return cache[n]
-    # Original implementation:
+
+    # # Original implementation:
     # if current > n:
     #     return 0
     # if current == n:

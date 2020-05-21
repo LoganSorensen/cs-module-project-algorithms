@@ -16,7 +16,8 @@ def single_number(arr):
     for num in counts:
         if counts[num] == 1:
             return num
-    # Original implementation
+
+    # # Original implementation
     # for i in range(len(arr)):
     #     found_twice = False
 
